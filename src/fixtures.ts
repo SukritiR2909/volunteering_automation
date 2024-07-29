@@ -8,6 +8,7 @@ import { CreateEventPage } from "./pages/createEventPage";
 import { TrackTimeSelf } from "./pages/trackTimeSelf";
 import { TrackTimeGroup } from "./pages/trackTimeGroup";
 import { AdminDashboardPage } from "./pages/adminDashboardPage";
+import { UserRole } from "./pages/userRole";
 
 type pageFixtures =  {
     activeAdminPage: ActiveAdminPage;
@@ -17,6 +18,7 @@ type pageFixtures =  {
     createEventPage: CreateEventPage;
     trackTimeSelf: TrackTimeSelf;
     trackTimeGroup: TrackTimeGroup;
+    userRole: UserRole;
 }
 
 export const test = base.extend<pageFixtures>({
@@ -63,6 +65,11 @@ export const test = base.extend<pageFixtures>({
     trackTimeGroup: async({page}, use) => {
       const trackTimeGroup = new TrackTimeGroup(page);
       await use(trackTimeGroup);
+    },
+
+    userRole: async({page}, use) => {
+      const userRole = new UserRole(page);
+      await use(userRole);
     }
 
 })
