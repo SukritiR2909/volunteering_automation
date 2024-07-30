@@ -65,7 +65,7 @@ export class UserRole extends BasePage {
         await this.page.goto('https://brightfunds.brightfundsstaging.com/users/a_a/hack');
         await this.lnkUser.click();
         await this.txtEmail.click();
-        await this.txtEmail.fill('553759@brightfunds.org');
+        await this.txtEmail.fill('961053@brightfunds.org');
         await this.btnFilter.click();
         await this.btnEdit.click();
 

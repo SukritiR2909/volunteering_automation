@@ -35,7 +35,7 @@ export class TrackTimeGroup extends BasePage {
 
     //===============> Locators <================//
 
-    readonly lnkTrackTimeGroup: Locator = this.page.getByRole('link', { name: 'Icon-track-group-color Track' });
+    readonly lnkTrackTimeGroup: Locator = this.page.locator("[href*='volunteering/group_events/new']");
     readonly txtOrganization: Locator = this.page.getByPlaceholder('Search nonprofit name or EIN');
     readonly radioNonProfit: Locator = this.page.getByText('Nonprofit');
     readonly radioSchool: Locator = this.page.getByText('Schools');
@@ -82,7 +82,20 @@ export class TrackTimeGroup extends BasePage {
 
     
 
-
+     async jsClickSelector(selector: string, page: Page) {
+        await page.evaluate((selector) => {
+          const element = document.querySelector(selector);
+          if (element) {
+            const event = new MouseEvent("click", {
+              bubbles: true,
+              cancelable: true,
+              view: window,
+            });
+            element.dispatchEvent(event);
+          }
+        }, selector);
+      }
+    
 
 
     //===================> Track time group  <======================//
@@ -100,8 +113,7 @@ export class TrackTimeGroup extends BasePage {
         let data: TrackTimeForm = {
             trackDescription: `Auto Group - ${faker.lorem.paragraph()}`,    
         }
-
-        await this.lnkTrackTimeGroup.hover();
+        await this.lnkTrackTimeGroup.waitFor();
         await this.lnkTrackTimeGroup.click();
         await this.txtOrganization.click();
         await this.txtOrganization.fill('Yams');
@@ -163,7 +175,7 @@ export class TrackTimeGroup extends BasePage {
             trackDescription: `Auto Group - ${faker.lorem.paragraph()}`,    
         }
 
-        await this.lnkTrackTimeGroup.click();
+        await this.lnkTrackTimeGroup.waitFor();
         await this.lnkTrackTimeGroup.click();
         await this.txtOrganization.click();
         await this.txtOrganization.fill('Yams');

@@ -11,7 +11,7 @@ export class TrackTimeSelf extends BasePage {
         super(page);
     }
 
-    readonly lnkTrackTime: Locator = this.page.getByRole('link', {name: 'Icon-track-personal-color'});
+    readonly lnkTrackTime: Locator = this.page.locator("[href*='volunteering/individual_times/new']");
     readonly txtOrganization: Locator = this.page.getByPlaceholder('Search nonprofit name or EIN');
     readonly radioNonProfit: Locator = this.page.getByText('Nonprofit');
     readonly radioSchool: Locator = this.page.getByText('Schools');
