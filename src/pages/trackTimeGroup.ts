@@ -101,6 +101,7 @@ export class TrackTimeGroup extends BasePage {
             trackDescription: `Auto Group - ${faker.lorem.paragraph()}`,    
         }
 
+        await this.lnkTrackTimeGroup.hover();
         await this.lnkTrackTimeGroup.click();
         await this.txtOrganization.click();
         await this.txtOrganization.fill('Yams');
@@ -162,6 +163,7 @@ export class TrackTimeGroup extends BasePage {
             trackDescription: `Auto Group - ${faker.lorem.paragraph()}`,    
         }
 
+        await this.lnkTrackTimeGroup.click();
         await this.lnkTrackTimeGroup.click();
         await this.txtOrganization.click();
         await this.txtOrganization.fill('Yams');

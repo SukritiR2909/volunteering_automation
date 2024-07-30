@@ -61,6 +61,7 @@ export class TrackTimeSelf extends BasePage {
         }
 
 
+        await this.lnkTrackTime.hover();
         await this.lnkTrackTime.click();
         await this.txtOrganization.click();
         await this.txtOrganization.fill('Rams');
