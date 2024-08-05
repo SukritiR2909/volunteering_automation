@@ -25,13 +25,14 @@ export class ActiveAdminPage extends BasePage {
     //volunteering settings
 
     readonly btnEnterprize: Locator = this.page.getByRole('link', {name: 'Enterprise', exact: true});
-    readonly btnConfig: Locator = this.page.getByRole('link', {name: 'Configurations', exact: true});
+    readonly btnConfig: Locator = this.page.getByRole('link', { name: 'Configurations', exact: true });
     readonly dropdownCompany: Locator = this.page.getByLabel('Company', {exact: true});
     readonly btnCompanyFilter: Locator = this.page.getByRole('button', {name: 'Filter'});
     readonly btnEditCompany: Locator = this.page.getByRole('link', {name: 'Edit', exact: true});
     readonly toggleNewUI: Locator = this.page.getByLabel('Enable new volunteering ui');
     readonly btnUpdateConfig: Locator = this.page.getByRole('button', {name: 'Update Configuration'});
 
+    
     async newVolunteerUI() {
         const isChecked = this.toggleNewUI.isChecked();
         if(!isChecked){
@@ -82,6 +83,7 @@ export class ActiveAdminPage extends BasePage {
 
     async volunteerSettings(): Promise<void> {
         await this.btnEnterprize.click();
+        await this.logger.info('Enterprise clicked');
         await this.btnConfig.click();
         await this.dropdownCompany.selectOption('971');
         await this.btnFilter.click();

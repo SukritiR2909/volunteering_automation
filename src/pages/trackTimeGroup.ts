@@ -57,10 +57,9 @@ export class TrackTimeGroup extends BasePage {
     readonly checkRemote: Locator = this.page.getByText('This was a remote activity');
 
       //volunteering opportunity type radios
-      readonly radioOpp1: Locator = this.page.getByText('Wildlife conservation: This');
-      readonly radioOpp2: Locator = this.page.getByText('Environmental education projects: This is an Environmental education');
-      readonly radioOpp3: Locator = this.page.getByText('Recycling: Recycling activity');
-      readonly radioOpp4: Locator = this.page.getByText('Green volunteering: Green');
+      readonly radioOpp1: Locator = this.page.getByText('Running activity: Running');
+      readonly radioOpp2: Locator = this.page.getByText('Cooking activity: cooking');
+      readonly radioOpp3: Locator = this.page.getByText('Giving activity: Givign');
           
       
       readonly dropCauseArea: Locator = this.page.locator('#volunteering_group_event_volunteering_cause_area_id');
@@ -105,9 +104,9 @@ export class TrackTimeGroup extends BasePage {
         const todayDate = today.getDate().toString();
 
       //random cause area picker
-      const options = ['287', '288', '289', '290'];
-        const randomIndex = Math.floor(Math.random() * options.length);
-        const randomOption = options[randomIndex];
+      const options = ['286', '287', '288', '289'];
+      const randomIndex = Math.floor(Math.random() * options.length);
+     const randomOption = options[randomIndex];
 
 
         let data: TrackTimeForm = {
@@ -125,8 +124,8 @@ export class TrackTimeGroup extends BasePage {
         await this.txtHours.fill('4');
         await this.logger.info('Hours entered');
         await this.txtAddPeople.click();
-        await this.txtAddPeople.fill('Raspo');
-        await this.page.locator('li').filter({ hasText: 'Raspotnik Spoor (831384@' }).click();
+        await this.txtAddPeople.fill('Lestrange');
+        await this.page.locator('li').filter({ hasText: 'Lestrange Cabe (1081968@' }).click();
         await this.txtAddPeople.press('Tab');
         // await this.txtAddPeople.click();
         // await this.txtAddPeople.clear();
@@ -201,15 +200,15 @@ export class TrackTimeGroup extends BasePage {
 
             // Sample data for multiple entries
             const entries = [
-                { email: '1093078@gwkinvest.com', hours: 8, designation: 'Auto - For specific reason', privacy: 'none', category: 'Environmental education projects' },
-                { email: '1086321@gwkinvest.com', hours: 6, designation: 'Auto - For water cooler', privacy: 'name', category: 'Environmental education projects' },
-                { email: '1081968@gwkinvest.com', hours: 5, designation: 'Auto - Use this money for children', privacy: 'email', category: 'Environmental education projects' },
-                { email: '1081967@gwkinvest.com', hours: 8, designation: 'Auto - Use this money for food', privacy: 'none', category: 'Wildlife conservation' },
-                { email: '1074169@gwkinvest.com', hours: 6, designation: 'Auto - Use this moeny for cloths', privacy: 'name', category: 'Wildlife conservation' },
-                { email: '1074168@gwkinvest.com', hours: 5, designation: 'Auto - For development', privacy: 'email', category: 'Wildlife conservation' },
-                { email: '1072524@gwkinvest.com', hours: 8, designation: 'Auto - For progress', privacy: 'none', category: 'Environmental education projects' },
-                { email: '1071735@gwkinvest.com', hours: 6, designation: 'Auto - For different reasons', privacy: 'name', category: 'Environmental education projects' },
-                { email: '1058273@gwkinvest.com', hours: 5, designation: 'Auto - For nature', privacy: 'email', category: 'Environmental education projects' },
+                { email: '1093078@gwkinvest.com', hours: 8, designation: 'Auto - For specific reason', privacy: 'none', category: 'Running activity' },
+                { email: '1086321@gwkinvest.com', hours: 6, designation: 'Auto - For water cooler', privacy: 'name', category: 'Running activity' },
+                { email: '1081968@gwkinvest.com', hours: 5, designation: 'Auto - Use this money for children', privacy: 'email', category: 'Running activity' },
+                { email: '1081967@gwkinvest.com', hours: 8, designation: 'Auto - Use this money for food', privacy: 'none', category: 'Cooking activity' },
+                { email: '1074169@gwkinvest.com', hours: 6, designation: 'Auto - Use this moeny for cloths', privacy: 'name', category: 'Cooking activity' },
+                { email: '1074168@gwkinvest.com', hours: 5, designation: 'Auto - For development', privacy: 'email', category: 'Cooking activity' },
+                { email: '1072524@gwkinvest.com', hours: 8, designation: 'Auto - For progress', privacy: 'none', category: 'Giving activity' },
+                { email: '1071735@gwkinvest.com', hours: 6, designation: 'Auto - For different reasons', privacy: 'name', category: 'Giving activity' },
+                { email: '1058273@gwkinvest.com', hours: 5, designation: 'Auto - For nature', privacy: 'email', category: 'Giving activity' },
                 { email: '1049860@gwkinvest.com', hours: 8, designation: 'Auto - For devlopment', privacy: 'none', category: 'Recycling' },
 
             ];

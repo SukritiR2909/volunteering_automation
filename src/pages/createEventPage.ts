@@ -40,10 +40,10 @@ export class CreateEventPage extends BasePage {
     readonly dropTimeZone: Locator = this.page.locator('#volunteering_scheduled_event_time_zone');
 
     //volunteering opportunity type radios
-    readonly radioOpp1: Locator = this.page.getByText('Wildlife conservation: This');
-    readonly radioOpp2: Locator = this.page.getByText('Environmental education projects: This is an Environmental education');
-    readonly radioOpp3: Locator = this.page.getByText('Recycling: Recycling activity');
-    readonly radioOpp4: Locator = this.page.getByText('Green volunteering: Green');
+    readonly radioOpp1: Locator = this.page.getByText('Running activity: Running');
+    readonly radioOpp2: Locator = this.page.getByText('Cooking activity: cooking');
+    readonly radioOpp3: Locator = this.page.getByText('Giving activity: Givign');
+    // readonly radioOpp4: Locator = this.page.getByText('Green volunteering: Green');
 
 
     readonly dropCauseArea: Locator = this.page.locator('#volunteering_scheduled_event_volunteering_cause_area_id');
@@ -105,7 +105,7 @@ export class CreateEventPage extends BasePage {
             const tomorrowDay = tomorrow.getDate().toString();
 
             //random cause area picker
-            const options = ['287', '288', '289', '290'];
+            const options = ['286', '287', '288', '289'];
             const randomIndex = Math.floor(Math.random() * options.length);
             const randomOption = options[randomIndex];
 

@@ -26,10 +26,10 @@ export class TrackTimeSelf extends BasePage {
     readonly checkRemoteEvent: Locator = this.page.getByText('This was a remote activity');
 
     //volunteering opportunity type radios
-    readonly radioOpp1: Locator = this.page.getByText('Wildlife conservation: This');
-    readonly radioOpp2: Locator = this.page.getByText('Environmental education projects: This is an Environmental education');
-    readonly radioOpp3: Locator = this.page.getByText('Recycling: Recycling activity');
-    readonly radioOpp4: Locator = this.page.getByText('Green volunteering: Green');
+    readonly radioOpp1: Locator = this.page.getByText('Running activity: Running');
+    readonly radioOpp2: Locator = this.page.getByText('Cooking activity: cooking');
+    readonly radioOpp3: Locator = this.page.getByText('Giving activity: Givign');
+    // readonly radioOpp4: Locator = this.page.getByText('Green volunteering: Green');
         
     
     readonly dropCauseArea: Locator = this.page.locator('#volunteering_individual_time_volunteering_cause_area_id');
@@ -51,8 +51,8 @@ export class TrackTimeSelf extends BasePage {
         const todayDate = today.getDate().toString();
 
       //random cause area picker
-        const options = ['287', '288', '289', '290'];
-        const randomIndex = Math.floor(Math.random() * options.length);
+      const options = ['286', '287', '288', '289'];
+      const randomIndex = Math.floor(Math.random() * options.length);
         const randomOption = options[randomIndex];
 
 
