@@ -91,8 +91,19 @@ export class CreateEventPage extends BasePage {
     //save and cancel button
     readonly btnCancel: Locator = this.page.getByRole('link', {name: 'Cancel'});
     readonly btnSaveAndPreview: Locator = this.page.getByRole('button', {
-        name: 'Save & Preview' })
+        name: 'Save & Preview'
+     })
 
+    readonly btnSaveAndPublish: Locator = this.page.getByRole('link', {
+        name: 'Publish Event'
+    })
+
+    readonly btnPublish: Locator = this.page.getByRole('button', {
+        name: 'Publish'
+    })
+    readonly btnViewEvent: Locator = this.page.getByRole('link', {
+        name: 'View Event'
+    })
 
         async enterEventFakerData(): Promise<CreateEventForm> {
 
@@ -170,6 +181,8 @@ export class CreateEventPage extends BasePage {
             let fakerData = await this.enterEventFakerData();
             await this.btnSaveAndPreview.click();
             await this.logger.info(`Clicked on button - Save & Preview`);
+            await this.btnSaveAndPublish.click();
+            await this.btnPublish.click();
             return fakerData;
           }
 
