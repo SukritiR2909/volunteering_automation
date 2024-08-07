@@ -9,6 +9,8 @@ import { TrackTimeSelf } from "./pages/trackTimeSelf";
 import { TrackTimeGroup } from "./pages/trackTimeGroup";
 import { AdminDashboardPage } from "./pages/adminDashboardPage";
 import { UserRole } from "./pages/userRole";
+import { FindVolunteering } from "./pages/findVolunteer";
+import { fi } from "@faker-js/faker";
 
 type pageFixtures =  {
     activeAdminPage: ActiveAdminPage;
@@ -19,6 +21,7 @@ type pageFixtures =  {
     trackTimeSelf: TrackTimeSelf;
     trackTimeGroup: TrackTimeGroup;
     userRole: UserRole;
+    findVolunteering: FindVolunteering;
 }
 
 export const test = base.extend<pageFixtures>({
@@ -70,6 +73,11 @@ export const test = base.extend<pageFixtures>({
     userRole: async({page}, use) => {
       const userRole = new UserRole(page);
       await use(userRole);
+    },
+
+    findVolunteering: async({page}, use) => {
+      const findVolunteer = new FindVolunteering(page);
+      await use(findVolunteer);
     }
 
 })
