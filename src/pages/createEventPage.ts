@@ -6,7 +6,7 @@ import { faker } from '@faker-js/faker';
 interface CreateEventForm {
     eventTitle: string;
     eventCoverDescription: string;
-    eventOrganization: string;
+    // eventOrganization: string;
     eventDescription: string;
     eventCoHost: string;
     shiftName: string;
@@ -126,7 +126,7 @@ export class CreateEventPage extends BasePage {
             let data: CreateEventForm = {
                 eventTitle: `Auto - ${faker.word.words(2)}`,
                 eventCoverDescription: faker.lorem.paragraph(),
-                eventOrganization: faker.company.name(),
+                // eventOrganization: faker.company.name(),
                 eventDescription: faker.lorem.paragraphs(),
                 shiftName: faker.word.words(2),
                 shiftStartDate: todayDate,
@@ -141,7 +141,9 @@ export class CreateEventPage extends BasePage {
             await this.btnUploadCover.setInputFiles('assets/file2.jpeg')
             await this.txtCoverDescription.fill(data.eventCoverDescription);
             await this.logger.info('Cover uploaded and description added');
-            await this.txtOrganization.fill(data.eventOrganization);
+            await this.txtOrganization.fill('hams');
+            await this.btnSearchOrganization.click();
+            await this.page.getByRole('link', {name: 'American Friends of Yeshivat'}).click();
             await this.logger.info('Organization added');
             await this.txtEventDescription.fill(data.eventDescription);
             await this.logger.info('Event description added');
@@ -195,4 +197,13 @@ export class CreateEventPage extends BasePage {
             return fakerData;
           }
         
+
+    //--------------> Cancle event <---------------//
+    
+    async cancleEvent(): Promise<CreateEventForm> {
+        let fakerData = await this.enterEventFakerData();
+        await this.btnCancel.click();
+        await this.logger.info('Event is cancled');
+        return fakerData;
+    }
 }
