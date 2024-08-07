@@ -165,7 +165,7 @@ export class TrackTimeGroup extends BasePage {
         const todayDate = today.getDate().toString();
 
       //random cause area picker
-      const options = ['287', '288', '289', '290'];
+      const options = ['286', '287', '288', '289'];
        const randomIndex = Math.floor(Math.random() * options.length);
         const randomOption = options[randomIndex];
 
