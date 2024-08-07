@@ -43,6 +43,29 @@ export class FindVolunteering extends BasePage {
         await this.logger.info('Link to share event copied')
     }
 
+    //---------->to make copy of the event<---------//
+
+    readonly txtOrganization: Locator = this.page.getByPlaceholder('Search nonprofit name');
+    readonly btnSearchOrganization: Locator = this.page.getByRole('link', {
+        name: 'Search'
+    });
+    readonly txtCoHost: Locator = this.page.getByPlaceholder('Search user name or email');
+    readonly CohostUser: Locator = this.page.getByRole('option', { name: 'Esplin Jenkerson 1072524@' })
+    readonly btnSaveAndPreview: Locator = this.page.getByRole('button', {
+        name: 'Save & Preview'
+     })
+
+    readonly btnSaveAndPublish: Locator = this.page.getByRole('link', {
+        name: 'Publish Event'
+    })
+
+    readonly btnPublish: Locator = this.page.getByRole('button', {
+        name: 'Publish'
+    })
+    readonly btnViewEvent: Locator = this.page.getByRole('link', {
+        name: 'View Event'
+    })
+
     async makeCopyEvnet(): Promise<void>{
         await this.dropCreator.click();
         await this.CompanyCreator.click();
@@ -50,7 +73,17 @@ export class FindVolunteering extends BasePage {
         await this.eventCard.click();
         await this.logger.info('Clicked on event');
         await this.btnCopyEvent.click();
-        
+        await this.txtOrganization.fill('fams');
+        await this.btnSearchOrganization.click();
+        await this.page.getByRole('link', { name: 'Fresno Art Museum 941358318 US' }).click();
+        await this.logger.info('Organization added');
+        await this.txtCoHost.fill('Esplin');
+        await this.CohostUser.click();
+        await this.logger.info('Co-host assigned');
+        await this.btnSaveAndPreview.click();
+        await this.btnSaveAndPublish.click();
+        await this.btnPublish.click();
+        await this.btnViewEvent.click();
     }
 
 }
